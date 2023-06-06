@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courses</title>
+    <link rel="stylesheet" href="/static/base.css">
+    <style>
+        nav > a {
+            margin-left: 85%;
+        }
+        div > h1 {
+            text-align: center;
+            margin-top: 5%;
+        }
+        div > table {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>
+            <nav>
+                <a href="/"> Go to Students</a>
+            </nav>
+        </h3>
+    </div>
+    <div>
+        <h1>Courses list</h1>
+    </div>
+    <div>
+        {% if courses %}
+            <table id = "all-courses">
+                <tr>
+                <th>SNo</th>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+                <th>Actions</th>
+                </tr>
+                {% for course in courses %}
+                <tr>
+                <td>{{ loop.index }}</td>
+                <td><a href='/course/{{ course["course_id"] }}'>{{ course["course_code"] }}</a></td>
+                <td>{{ course["course_name"] }}</td>
+                <td>{{ course["course_description"] }}</td>
+                <td>
+                <a href='/course/{{ course["course_id"] }}/update'>Update</a>
+                <a href='/course/{{ course["course_id"] }}/delete'>Delete</a>
+                </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <div style="text-align: center; color: red;">
+                No course found. Add the courses now!!
+            </div>      
+        {% endif %}
+    </div>
+    <div style="text-align: center; margin-top: 2%;">
+        <a href="/course/create">+Add Course</a>
+    </div>
+</body>
+</html>

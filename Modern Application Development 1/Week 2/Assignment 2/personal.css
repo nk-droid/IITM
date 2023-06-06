@@ -1,0 +1,29 @@
+#page {
+    background-color : #fdfdbb; 
+    color: #000000;
+ }
+
+a {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+#first {
+    margin-left: 30%; 
+}
+
+#link {
+    margin-left: 40%;
+}
+
+h5 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <style>
+            h1{
+                text-align: center;
+            }
+            
+            a{
+                margin-left: 125px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>Student Details</h1>
+        <table id = "personal-details">
+            <tr>
+                <th>   
+                    Roll Number
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    {{ student["roll_number"] }}
+                </td>
+                <td>
+                    {{ student["first_name"] }}
+                </td>
+                <td>
+                    {{ student["last_name"] }}
+                </td>
+            </tr>
+        </table>
+
+        <h1>Enrollment list</h1>
+        <table id = "enroll-table">
+            <tr>
+                <th>S. No.</th>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+            </tr>
+            {% for row in enrollment_table %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ row["course_code"] }}</td>
+                <td>{{ row["course_name"] }}</td>
+                <td>{{ row["course_description"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href= "{{ url_for('home') }}"> Go Home </a>
+    </body>
+</html>

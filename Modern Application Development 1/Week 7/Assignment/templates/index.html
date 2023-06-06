@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/base.css">
+    <style>
+        nav > a {
+            margin-left: 85%;
+        }
+        div > h1 {
+            text-align: center;
+            margin-top: 5%;
+        }
+        div > table {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>
+            <nav>
+                <a href="/courses"> Go to Courses</a>
+            </nav>
+        </h3>
+    </div>
+    <div>
+        <h1>Students list</h1>
+    </div>
+    <div>
+        {% if students %}
+            <table id = "all-students">
+            <tr>
+                <th>SNo</th>
+                <th>Roll Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Actions</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>
+                    <a href='/student/{{ student["student_id"] }}'>{{ student["roll_number"] }}</a>
+                </td>
+                <td>{{ student["first_name"] }}</td>
+                <td>{{ student["last_name"] }}</td>
+                <td>
+                    <a href='/student/{{ student["student_id"] }}/update'>Update</a>
+                    <a href='/student/{{ student["student_id"] }}/delete'>Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </table>
+        {% else %}
+            <div style="text-align: center; color: red;">
+                No student found. Add the students now!
+            </div>   
+        {% endif %}
+    </div>
+    <div style="text-align: center; margin-top: 2%;">
+        <a href="/student/create">+Add Student</a>
+    </div>
+</body>
+</html>

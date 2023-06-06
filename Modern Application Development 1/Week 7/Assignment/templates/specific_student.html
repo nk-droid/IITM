@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+    <link rel="stylesheet" href="/static/base.css">
+    <style>
+        table {
+            margin-top: 1%;
+            margin-bottom: 3%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 15px;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style> 
+</head>
+<body>
+    <h1 style="margin-top: 8%;">Students list</h1>
+    <table id = 'student-detail'>
+    <thead>
+    <tr>
+    <th>Roll Number</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>{{ student["roll_number"] }}</td>
+    <td>{{ student["first_name"] }}</td>
+    <td>{{ student["last_name"] }}</td>
+    </tr>
+    </tbody>
+    </table>
+
+    <h1>Enrollment list</h1>
+    <table id = "student-enrollments">
+        <thead>
+        <tr>
+        <th>SNo</th>
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Course Description</th>
+        <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for course in enrollment_table %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ course["course_code"] }}</td>
+            <td>{{ course["course_name"] }}</td>
+            <td>{{ course["course_description"] }}</td>
+            <td>
+            <a href='/student/{{ student["student_id"] }}/withdraw/{{ course["course_id"] }}'>Withdraw</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div style="text-align: center; margin-top: 2%;">
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+#page {
+    background-color : #fdfdbb; 
+    color: #000000;
+ }
+ 
+a {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+table {
+    background-color: #000000;
+    color: #ffffff;
+    width: 26%;
+    margin-left: 37%;
+    margin-right: 37%;
+}
+
+th {
+    background-color: #259e3f;
+    color: #ffffff;
+    width: 20%;
+    text-align: center;
+}
+
+td:nth-child(even) {
+    text-align:center;
+}
+
+h5 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+

@@ -1,0 +1,25 @@
+#page {
+   background-color : #fdfdbb; 
+   color: #000000;
+}
+
+a {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+#main {
+    color: #0000ff;
+}
+
+h1 {
+    text-align: center;
+}
+
+h5 {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
