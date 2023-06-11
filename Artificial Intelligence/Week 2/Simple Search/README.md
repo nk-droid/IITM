@@ -1,12 +1,14 @@
 ### Simple Search Algorithm
 
 ```
-1 	OPEN  🡨 {S}
-2 	while OPEN is not empty
-3 	   do pick some node N from OPEN
-4 		OPEN 🡨  OPEN − {N}
-5 		if GoalTest(N) = TRUE
-6 		  then 	return N
-7 		  else 	OPEN 🡨  OPEN ∪ MoveGen(N)
-8 	return FAILURE
+1   OPEN 🡨  {start}
+2   CLOSED 🡨   { }
+3   while OPEN is not empty
+4      do Pick some node N from open
+5           OPEN 🡨  OPEN − {N}
+6           CLOSED 🡨  CLOSED ∪ {N}
+7           if GoalTest(N) = TRUE
+8              then return N
+9           else OPEN 🡨 OPEN ∪ {MoveGen(N) − CLOSED}
+10  return FAILURE
 ```
