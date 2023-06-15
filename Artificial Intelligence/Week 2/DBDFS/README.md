@@ -8,12 +8,14 @@
 5       (N, _, depth) 🡨 nodeTriplet
 6       if GoalTest(N) = True
 7           return ReconstructPath(nodePair, CLOSED)
-8        else CLOSED 🡨 nodeTriplet : CLOSED
-9           children 🡨 MoveGen(N)
-10          newNodes 🡨 RemoveSeen(children, OPEN, CLOSED)
-11          newTriplets 🡨 MakeTriplets(NewNodes, N)
-12          OPEN 🡨 newTriplets ++ (tail OPEN)
-13  return empty list
+8       else CLOSED 🡨 nodeTriplet : CLOSED
+9           if depth < depthBound
+10               children 🡨 MoveGen(N)
+11              newNodes 🡨 RemoveSeen(children, OPEN, CLOSED)
+12              newTriplets 🡨 MakeTriplets(NewNodes, N)
+13              OPEN 🡨 newTriplets ++ (tail OPEN)
+14          else OPEN 🡨 tail OPEN
+15  return empty list
 ```
 
 **Functions used**
